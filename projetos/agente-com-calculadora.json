@@ -1,0 +1,137 @@
+{
+  "name": "Agente com Calculadora",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "d0f57585-7e14-4252-9f96-c43ddf26890b",
+      "name": "When chat message received",
+      "webhookId": "7d759d75-77ad-4b4a-8411-ac72bca92dfb"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "Você é um assistente financeiro especializado em cálculos de compras, descontos e preços. \nQuando o usuário fizer perguntas que envolvam cálculos matemáticos, use a ferramenta de calculadora para garantir precisão. \nPara perguntas conceituais ou de conversa, responda diretamente sem usar a ferramenta. \nSempre responda em português, de forma clara e objetiva."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "b9236a9e-2bb5-4047-9a02-e98ad93d449f",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.1-8b-instant",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        144,
+        192
+      ],
+      "id": "8fcc50ea-92e7-4f99-8ec1-f25ce7c9e021",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "99SLXAnGYZdqhjIs",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        304,
+        192
+      ],
+      "id": "697941e7-133d-44f3-931e-77a0db99a4ab",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        432,
+        192
+      ],
+      "id": "f55c977f-0f86-4aed-ae63-c07a40ea1d53",
+      "name": "Calculator"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "6e2edf65-01d0-4a9b-bec9-595a745c441d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9aa0bc81c0b9dc763f6236115d382ad0b693c2747c45b825c70f01c3b38f9501"
+  },
+  "id": "r2pkEgnLhyexBhn4",
+  "tags": []
+}
