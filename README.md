@@ -9,6 +9,7 @@ Projetos e exemplos usados no minicurso de n8n realizado na Unaerp — coleção
 
 ## Badges
 ![Licença](https://img.shields.io/github/license/GiovanniJorge/n8n-minicurso?style=flat-square)
+![Projetos](https://img.shields.io/badge/quantidade-3%20projetos-blue?style=flat-square)
 
 ## Sumário
 - [Visão geral](#visão-geral)
@@ -25,6 +26,7 @@ Este repositório organiza exemplos práticos de automações criadas com n8n pa
 ## Estrutura do repositório
 Top-level:
 ```text
+├── .gitattributes
 ├── LICENSE
 ├── README.md
 └── projetos/                   # Workflows exportados (.json)
