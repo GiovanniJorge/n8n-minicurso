@@ -29,7 +29,7 @@ Top-level:
 ├── .gitattributes
 ├── LICENSE
 ├── README.md
-└── projetos/                   # Workflows exportados (.json)
+└── projetos/                                               # Workflows exportados (.json)
     ├── agente-com-calculadora.json
     ├── consulta-de-endereco.json
     └── verificador-de-disponibilidade-de-produtos.json
