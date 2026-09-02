@@ -4,7 +4,7 @@
   <img alt="n8n" src="https://img.shields.io/badge/n8n-Automação%20e%20integração-FF6F00?logo=n8n&logoColor=white" />
   <img alt="Node.js" src="https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white" />
   <img alt="JSON" src="https://img.shields.io/badge/JSON-Workflows-4B8BBE" />
-  <img alt="status" src="https://img.shields.io/badge/status-ativo-brightgreen" />
+  <img alt="status" src="https://img.shields.io/badge/status-concluído-brightgreen" />
   <img alt="licença" src="https://img.shields.io/badge/licen%C3%A7a-MIT-blue" />
 </p>
 
